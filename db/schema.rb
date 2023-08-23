@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_23_040903) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_23_043231) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "beers", force: :cascade do |t|
-    t.string "type"
+    t.string "style"
     t.boolean "on_tap"
     t.float "pint_price"
     t.integer "brewery_id"
