@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="../../assets/stylesheets/main.css">
   </head>
   <body>
+  <ul class="nav">
+    <li><a href="/beers">Beers</a></li>
+    <li><a href="/breweries">Breweries</a></li>
+  </ul>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -21,7 +25,7 @@
     <h1>All Breweries</h1>
 
     <% @breweries.each do |brewery| %>
-      <a href="/brewery/<%= brewery.id %>%>"><%= brewery.name %></a>
+      <a class="links" href="/brewery/<%= brewery.id %>%>"><%= brewery.name %> Created: <%= brewery.created_at %></a><br>
     <% end %>
   </body>
 </html>

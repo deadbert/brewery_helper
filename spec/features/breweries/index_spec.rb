@@ -10,22 +10,8 @@ RSpec.describe "Breweries index", type: :feature do
         #act
         visit "/breweries"
         #assert
-        save_and_open_page
         expect(page).to have_content(brewery_1.name)
         expect(page).to have_content(brewery_2.name)
-      end
-    end
-    
-    describe "When I visit /breweries/:id" do
-      it "I can see the parent entry and the parent entries attributes" do
-        brewery_1 = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
-        visit "/brewery/#{brewery_1.id}"        
-        save_and_open_page
-
-        expect(page).to have_content(brewery_1.name)
-        expect(page).to have_content(brewery_1.location)
-        expect(page).to have_content(brewery_1.total_taps)
-        expect(page).to have_content(brewery_1.allow_dogs)
       end
     end
   end
