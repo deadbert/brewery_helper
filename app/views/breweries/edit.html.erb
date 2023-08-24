@@ -18,14 +18,18 @@
     <![endif]-->
     
     <script src="" async defer></script>
-    <h1>All Breweries</h1>
-    <div style='text-align: center; font-size: 24px;'><a href="/breweries/new">Add Brewery</a></div><hr/><br>
-    <% @breweries.each do |brewery| %>
-    <div>
-      <a href="/brewery/<%= brewery.id %>%>"><%= brewery.name %> Created: <%= brewery.created_at %></a>
-      <div style='text-align: center'><a href="/brewery/<%= brewery.id %>/edit">Update</a></div>
-    </div><hr/>
-
-    <% end %>
+    <div style='text-align: center'><h1>Edit <%= @brewery.name %></h1></div>
+    <form action="/brewery/<%= @brewery.id %>/update" method='post'>
+      <input type="hidden" name="_method" value="PATCH" />
+      <label for="brewery_name">Brewery name:</label><br>
+      <input type="text" id="brewery_name" name="brewery_name" value="<%= @brewery.name %>"><br>
+      <label for="location">Location:</label><br>
+      <input type="text" id="location" name="location" value="<%= @brewery.location %>"><br>
+      <label for="total_taps">Total Taps:</label><br>
+      <input type="text" id="total_taps" name="total_taps" value="<%= @brewery.total_taps %>"><br>
+      <label for="allow_dogs">Allow dogs?</label><br>
+      <input type="text" id="allow_dogs", name="allow_dogs" value="<%= @brewery.allow_dogs %>"><br>
+      <input type="submit" value="Submit">
+    </form><br>
   </body>
 </html>

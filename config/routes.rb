@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get '/breweries', to: 'breweries#index'
   get '/brewery/:id', to: 'breweries#show'
   get '/brewery/:id/beers', to: 'breweries#show_beers'
+  get '/brewery/:id/edit', to: 'breweries#edit'
+  get '/breweries/new', to: 'breweries#new'
+  post '/breweries/create', to: 'breweries#create'
+  patch '/brewery/:id/update', to: 'breweries#update'
 
   get '/beers', to: 'beer#index'
   get '/beer/:id', to: 'beer#show'
