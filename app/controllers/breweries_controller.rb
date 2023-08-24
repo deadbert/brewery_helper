@@ -8,4 +8,9 @@ class BreweriesController < ApplicationController
     @count = @brewery.beers_count
   end
 
+  def show_beers
+    @brewery = Brewery.find(params[:id])
+    @beers = @brewery.beers
+  end
+
 end

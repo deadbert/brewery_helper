@@ -18,16 +18,14 @@
     <![endif]-->
     
     <script src="" async defer></script>
-    <h1>All Breweries</h1>
-    <%# <form>
-      <label for="brewery_name">Brewery name:</label>
-      <input type="text" id="brewery_name" name="brewery_name">
-      <label for="location">Location:</label>
-      <input type="text" id="location" name="location">
-    </form> %>
-
-    <% @breweries.each do |brewery| %>
-      <a class="links" href="/brewery/<%= brewery.id %>%>"><%= brewery.name %> Created: <%= brewery.created_at %></a><br>
+    <h1><%= @brewery.name %> Beers:</h1>
+    <% @beers.each do |beer| %>
+      <h2><a href="/beer/<%= beer.id %>"><%= beer.name %></a></h2>
+      <ul>
+        <li>Beer Style: <%= beer.style %></li>
+        <li>On tap: <%= beer.on_tap %></li>
+        <li>Price: <%= beer.pint_price %></li>
+      </ul>
     <% end %>
   </body>
 </html>

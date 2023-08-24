@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   
   get '/breweries', to: 'breweries#index'
   get '/brewery/:id', to: 'breweries#show'
+  get '/brewery/:id/beers', to: 'breweries#show_beers'
 
-  get '/beers/', to: 'beer#index'
+  get '/beers', to: 'beer#index'
   get '/beer/:id', to: 'beer#show'
 end
