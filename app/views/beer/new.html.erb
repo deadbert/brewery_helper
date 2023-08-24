@@ -18,17 +18,17 @@
     <![endif]-->
     
     <script src="" async defer></script>
-    <div style='text-align: center'><h1>Edit <%= @brewery.name %></h1></div>
-    <form action="/breweries/<%= @brewery.id %>" method='post'>
-      <input type="hidden" name="_method" value="PATCH" />
-      <label for="brewery_name">Brewery name:</label><br>
-      <input type="text" id="brewery_name" name="brewery_name" value="<%= @brewery.name %>"><br>
-      <label for="location">Location:</label><br>
-      <input type="text" id="location" name="location" value="<%= @brewery.location %>"><br>
-      <label for="total_taps">Total Taps:</label><br>
-      <input type="text" id="total_taps" name="total_taps" value="<%= @brewery.total_taps %>"><br>
-      <label for="allow_dogs">Allow dogs?</label><br>
-      <input type="text" id="allow_dogs", name="allow_dogs" value="<%= @brewery.allow_dogs %>"><br>
+    <div style='text-align: center'><h1>Add New Beer to <%= @brewery.name %></h1></div>
+    <form action="/breweries/:id/beers" method='post'>
+      <input type="hidden" name="brewery_id" value="<%= @brewery.id %>" />
+      <label for="type">Beer type:</label><br>
+      <input type="text" id="type" name="type"><br>
+      <label for="on_tap">On_tap?:</label><br>
+      <input type="text" id="on_tap" name="on_tap"><br>
+      <label for="pint_price">Pint Price:</label><br>
+      <input type="text" id="pint_price" name="pint_price"><br>
+      <label for="beer_name">Beer Name:</label><br>
+      <input type="text" id="beer_name" name="beer_name"><br>
       <input type="submit" value="Submit">
     </form><br>
   </body>

@@ -22,8 +22,8 @@
     <div style='text-align: center; font-size: 24px;'><a href="/breweries/new">Add Brewery</a></div><hr/><br>
     <% @breweries.each do |brewery| %>
     <div>
-      <a href="/brewery/<%= brewery.id %>%>"><%= brewery.name %> Created: <%= brewery.created_at %></a>
-      <div style='text-align: center'><a href="/brewery/<%= brewery.id %>/edit">Update</a></div>
+      <a href="/breweries/<%= brewery.id %>%>"><%= brewery.name %> Created: <%= brewery.created_at %></a>
+      <div style='text-align: center'><a href="/breweries/<%= brewery.id %>/edit">Update</a></div>
     </div><hr/>
 
     <% end %>

@@ -19,8 +19,9 @@
     
     <script src="" async defer></script>
     <h1><%= @brewery.name %> Beers:</h1>
+    <div style='text-align: center; font-size: 24px'><a href='/breweries/<%= @brewery.id %>/beers/new'>Add New Beer</a></div>
     <% @beers.each do |beer| %>
-      <h2><a href="/beer/<%= beer.id %>"><%= beer.name %></a></h2>
+      <h2><a href="/beers/<%= beer.id %>"><%= beer.name %></a></h2>
       <ul>
         <li>Beer Style: <%= beer.style %></li>
         <li>On tap: <%= beer.on_tap %></li>
