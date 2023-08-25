@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "Breweries Show" do
   describe "As a user" do
     describe "When I visit /breweries/:id" do
+      brewery_1 = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
       it "I can see the parent entry and the parent entries attributes" do
-        brewery_1 = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
         visit "/breweries/#{brewery_1.id}"        
 
         expect(page).to have_content(brewery_1.name)
@@ -14,7 +14,6 @@ RSpec.describe "Breweries Show" do
       end
 
       it "I see a count of the number of beers related to the brewery" do
-        brewery_1 = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
         brewery_1.beers.create(style: "IPA", on_tap: true, pint_price: 7.50, name: "Juicy Bits")
         brewery_1.beers.create(style: "IPA", on_tap: true, pint_price: 7.50, name: "Space Cadet")
 
@@ -24,15 +23,13 @@ RSpec.describe "Breweries Show" do
       end
 
       it "I see a link to the breweries beers index" do
-        brewery_1 = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
-
         visit "/breweries/#{brewery_1.id}"
 
         expect(page).to have_link(href: "/breweries/#{brewery_1.id}/beers")
       end
 
       it "I see a link to the beers and breweries index" do
-        visit '/beers'
+        visit "/breweries/#{brewery_1.id}"
         
         expect(page).to have_link(href: '/beers')
         expect(page).to have_link(href: '/breweries')
