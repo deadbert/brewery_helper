@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   post '/breweries/:id/beers', to: 'beer#create'
   post '/breweries/create', to: 'breweries#create'
 
-  delete "/breweries/:id/delete", to: 'breweries#delete'
+  delete '/breweries/:id/delete', to: 'breweries#delete'
+  delete 'beer/:id/delete', to: 'beer#delete'
 
   patch '/breweries/:id', to: 'breweries#update'
 
