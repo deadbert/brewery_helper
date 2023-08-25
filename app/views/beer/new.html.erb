@@ -21,7 +21,7 @@
     <div style='text-align: center'><h1>Add New Beer to <%= @brewery.name %></h1></div>
     <form action="/breweries/:id/beers" method='post'>
       <input type="hidden" name="brewery_id" value="<%= @brewery.id %>" />
-      <label for="type">Beer type:</label><br>
+      <label for="type">Beer style:</label><br>
       <input type="text" id="type" name="type"><br>
       <label for="on_tap">On_tap?:</label><br>
       <input type="text" id="on_tap" name="on_tap"><br>

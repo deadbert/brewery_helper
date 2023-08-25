@@ -15,9 +15,12 @@ Rails.application.routes.draw do
 
   post '/breweries/:id/beers', to: 'beer#create'
   post '/breweries/create', to: 'breweries#create'
-  
+
   patch '/breweries/:id', to: 'breweries#update'
 
   get '/beers', to: 'beer#index'
   get '/beers/:id', to: 'beer#show'
+  get '/beers/:id/edit', to: 'beer#edit'
+
+  patch 'beers/:id', to: 'beer#update'
 end

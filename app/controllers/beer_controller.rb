@@ -19,7 +19,21 @@ class BeerController < ApplicationController
     redirect_to "/breweries/#{@brewery.id}/beers"
   end
 
+  def update
+    Beer.find(params[:id]).update(
+      style: params[:beer_type],
+      on_tap: params[:on_tap],
+      pint_price: params[:pint_price],
+      name: params[:beer_name]
+    )
+    redirect_to "/beers/#{params[:id]}"
+  end
+
   def new
     @brewery = Brewery.find(params[:id])
+  end
+
+  def edit
+    @beer = Beer.find(params[:id])
   end
 end

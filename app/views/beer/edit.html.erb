@@ -18,13 +18,18 @@
     <![endif]-->
     
     <script src="" async defer></script>
-    <h1><%= @beer.name %></h1>
-    <ul>
-      <li>Beer Style: <%= @beer.style %></li>
-      <li>On Tap?: <%= @beer.on_tap %></li>
-      <li>Price: <%= @beer.pint_price %></li>
-      <li>Brewer: <%= @brewer.name%></li>
-    </ul><br>
-    <a href="/beers/<%= @beer.id %>/edit">Edit</a>
+    <div style='text-align: center'><h1>Edit <%= @beer.name %></h1></div>
+    <form action="/beers/<%= @beer.id %>" method='post'>
+      <input type="hidden" name="_method" value="PATCH" />
+      <label for="style">Beer style:</label><br>
+      <input type="text" id="style" name="style" value="<%= @beer.style%>"><br>
+      <label for="on_tap">On_tap?:</label><br>
+      <input type="text" id="on_tap" name="on_tap" value="<%= @beer.on_tap%>"><br>
+      <label for="pint_price">Pint Price:</label><br>
+      <input type="text" id="pint_price" name="pint_price" value="<%= @beer.pint_price%>"><br>
+      <label for="beer_name">Beer Name:</label><br>
+      <input type="text" id="beer_name" name="beer_name" value="<%= @beer.name%>"><br>
+      <input type="submit" value="Submit">
+    </form><br>
   </body>
 </html>
