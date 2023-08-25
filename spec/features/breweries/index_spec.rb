@@ -22,6 +22,13 @@ RSpec.describe "Breweries index", type: :feature do
 
         expect(brewery_2.name).to appear_before(brewery_1.name)
       end
+
+      it "I see a link to the beers and breweries index" do
+        visit '/beers'
+        
+        expect(page).to have_link(href: '/beers')
+        expect(page).to have_link(href: '/breweries')
+      end
     end
   end
 end

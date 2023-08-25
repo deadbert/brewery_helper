@@ -22,6 +22,13 @@ RSpec.describe "Breweries Show" do
 
         expect(page).to have_content("Total Beers: 2")
       end
+
+      it "I see a link to the beers and breweries index" do
+        visit '/beers'
+        
+        expect(page).to have_link(href: '/beers')
+        expect(page).to have_link(href: '/breweries')
+      end
     end
 
     describe "When I visit /breweries/:id/beers" do
@@ -34,6 +41,13 @@ RSpec.describe "Breweries Show" do
         expect(page).to have_content(beer_1.on_tap)
         expect(page).to have_content(beer_1.pint_price)
         expect(page).to have_content(beer_1.name)
+      end
+
+      it "I see a link to the beers and breweries index" do
+        visit '/beers'
+        
+        expect(page).to have_link(href: '/beers')
+        expect(page).to have_link(href: '/breweries')
       end
     end
   end

@@ -13,6 +13,13 @@ RSpec.describe 'Beer Show' do
         expect(page).to have_content(beer_1.pint_price)
         expect(page).to have_content(brewer.name)
       end
+
+      it "I see a link to the beers and breweries index" do
+        visit '/beers'
+        
+        expect(page).to have_link(href: '/beers')
+        expect(page).to have_link(href: '/breweries')
+      end
     end
   end
 end
