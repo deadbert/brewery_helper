@@ -1,6 +1,6 @@
 class BeerController < ApplicationController
   def index
-    @beers = Beer.all
+    @beers = Beer.beers_on_tap
   end
 
   def show
