@@ -8,4 +8,8 @@ class Brewery < ApplicationRecord
   def self.order_by
     Brewery.order("created_at DESC")
   end
+
+  def ordered_beers
+    self.beers.order('name')
+  end
 end

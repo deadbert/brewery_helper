@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
   
   get '/breweries', to: 'breweries#index'
+  get '/breweries/new', to: 'breweries#new'
   get '/breweries/:id', to: 'breweries#show'
   get '/breweries/:id/beers', to: 'breweries#show_beers'
+  get '/breweries/:id/beers_alphabetical', to: 'breweries#show_alphabetized'
   get '/breweries/:id/edit', to: 'breweries#edit'
-  get '/breweries/new', to: 'breweries#new'
   get '/breweries/:id/beers/new', to: 'beer#new'
 
   post '/breweries/:id/beers', to: 'beer#create'

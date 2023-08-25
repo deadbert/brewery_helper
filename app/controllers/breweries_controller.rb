@@ -9,8 +9,13 @@ class BreweriesController < ApplicationController
   end
 
   def show_beers
-    @brewery = Brewery.find(params[:id])
-    @beers = @brewery.beers
+    if params[:sorted] == 'true'
+      @brewery = Brewery.find(params[:id])
+      @beers = @brewery.ordered_beers
+    else
+      @brewery = Brewery.find(params[:id])
+      @beers = @brewery.beers
+    end
   end
 
   def create
