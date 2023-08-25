@@ -23,6 +23,14 @@ RSpec.describe "Breweries Show" do
         expect(page).to have_content("Total Beers: 2")
       end
 
+      it "I see a link to the breweries beers index" do
+        brewery_1 = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
+
+        visit "/breweries/#{brewery_1.id}"
+
+        expect(page).to have_link(href: "/breweries/#{brewery_1.id}/beers")
+      end
+
       it "I see a link to the beers and breweries index" do
         visit '/beers'
         
