@@ -12,6 +12,16 @@ RSpec.describe "Breweries Show" do
         expect(page).to have_content(brewery_1.total_taps)
         expect(page).to have_content(brewery_1.allow_dogs)
       end
+
+      it "I see a count of the number of beers related to the brewery" do
+        brewery_1 = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
+        brewery_1.beers.create(style: "IPA", on_tap: true, pint_price: 7.50, name: "Juicy Bits")
+        brewery_1.beers.create(style: "IPA", on_tap: true, pint_price: 7.50, name: "Space Cadet")
+
+        visit "/breweries/#{brewery_1.id}"
+
+        expect(page).to have_content("Total Beers: 2")
+      end
     end
 
     describe "When I visit /breweries/:id/beers" do
