@@ -20,6 +20,12 @@
     <script src="" async defer></script>
     <h1><%= @brewery.name %></h1>
     <h3>Total Beers: <%= @count %></h3>
+    <div style="float: right;">
+      <form action="/breweries/<%= @brewery.id %>/delete" method='post'>
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+      </form>
+    </div>
     <a href="/breweries/<%= @brewery.id %>/edit">Update</a></div>
       <ul>
         <li>Location: <%= @brewery.location %></li>
@@ -28,5 +34,6 @@
       </ul>
 
       <h2><a href='/breweries/<%= @brewery.id %>/beers'>Beers</a></h2>
+      <hr />
   </body>
 </html>

@@ -1,5 +1,5 @@
 class Brewery < ApplicationRecord
-  has_many :beers
+  has_many :beers, dependent: :destroy
 
   def beers_count
     self.beers.count
