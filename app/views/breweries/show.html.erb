@@ -20,6 +20,7 @@
     <script src="" async defer></script>
     <h1><%= @brewery.name %></h1>
     <h3>Total Beers: <%= @count %></h3>
+    <a href="/breweries/<%= @brewery.id %>/edit">Update</a></div>
       <ul>
         <li>Location: <%= @brewery.location %></li>
         <li>Total Taps: <%= @brewery.total_taps %></li>
