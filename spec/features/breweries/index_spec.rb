@@ -13,6 +13,15 @@ RSpec.describe "Breweries index", type: :feature do
         expect(page).to have_content(brewery_1.name)
         expect(page).to have_content(brewery_2.name)
       end
+
+      it "Is ordered by most recently created Brewery fist" do
+        brewery_1 = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
+        brewery_2 = Brewery.create(name: "Maxline", location: "Fort Collins", total_taps: 12, allow_dogs: true)
+
+        visit "/breweries"
+
+        expect(brewery_2.name).to appear_before(brewery_1.name)
+      end
     end
   end
 end

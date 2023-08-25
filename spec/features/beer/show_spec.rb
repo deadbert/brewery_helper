@@ -7,7 +7,7 @@ RSpec.describe 'Beer Show' do
         brewer = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
         beer_1 = brewer.beers.create(style: 'Lager', on_tap: true, pint_price: 6.00, name: 'willy')
 
-        visit "beer/#{beer_1.id}"
+        visit "beers/#{beer_1.id}"
         expect(page).to have_content(beer_1.style)
         expect(page).to have_content(beer_1.on_tap)
         expect(page).to have_content(beer_1.pint_price)
