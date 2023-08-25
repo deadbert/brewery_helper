@@ -21,11 +21,13 @@
     <h1>All Beers</h1>
     <% @beers.each do |beer| %>
       <h2><a href="/beers/<%= beer.id %>"><%= beer.name %></a></h2>
+      <a href="/beers/<%= beer.id %>/edit" style="float: right; font-size: 32px;">Edit</a>
       <ul>
         <li>Beer Style: <%= beer.style %></li>
         <li>On tap: <%= beer.on_tap %></li>
         <li>Price: <%= beer.pint_price %></li>
       </ul>
+      <hr />
     <% end %>
   </body>
 </html>

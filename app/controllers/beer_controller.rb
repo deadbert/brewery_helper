@@ -21,7 +21,7 @@ class BeerController < ApplicationController
 
   def update
     Beer.find(params[:id]).update(
-      style: params[:beer_type],
+      style: params[:style],
       on_tap: params[:on_tap],
       pint_price: params[:pint_price],
       name: params[:beer_name]
