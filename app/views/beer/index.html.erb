@@ -27,6 +27,10 @@
         <li>On tap: <%= beer.on_tap %></li>
         <li>Price: <%= beer.pint_price %></li>
       </ul>
+      <form action="/beers/<%= beer.id %>/delete" method='post'>
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+      </form>
       <hr />
     <% end %>
   </body>

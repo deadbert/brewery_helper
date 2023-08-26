@@ -19,19 +19,17 @@
     
     <script src="" async defer></script>
     <h1><%= @beer.name %></h1>
-    <div style="float: right;">
-      <form action="/beer/<%= @beer.id %>/delete" method='post'>
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete">
-      </form>
-    </div>
+    <a href="/beers/<%= @beer.id %>/edit" style="float: right; font-size: 32px;">Edit</a>
     <ul>
       <li>Beer Style: <%= @beer.style %></li>
       <li>On Tap?: <%= @beer.on_tap %></li>
       <li>Price: <%= @beer.pint_price %></li>
       <li>Brewer: <%= @brewer.name%></li>
     </ul><br>
-    <a href="/beers/<%= @beer.id %>/edit">Edit</a>
+      <form action="/beers/<%= @beer.id %>/delete" method='post'>
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+      </form>
     <hr />
   </body>
 </html>
