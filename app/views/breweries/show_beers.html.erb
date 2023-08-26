@@ -20,16 +20,23 @@
     <script src="" async defer></script>
     <h1><%= @brewery.name %> Beers:</h1>
     <div style='text-align: center; font-size: 24px'><a href='/breweries/<%= @brewery.id %>/beers/new'>Add New Beer</a></div>
+    <div>
+      <form action='/breweries/<%= @brewery.id %>/beers' method="get">
+        <label for="beer_price">Only show beers costing more than:</label>
+        <input type="float" id="beer_price" name="beer_price">
+        <input type="submit" value="Submit">
+      </form><br>
+    </div>
     <a href="/breweries/<%= @brewery.id %>/beers?sorted=true">Sort By Alphabetical</a>
-    <% @beers.each do |beer| %>
-      <h2><a href="/beers/<%= beer.id %>"><%= beer.name %></a></h2>
-      <a href="/beers/<%= beer.id %>/edit" style="float: right; font-size: 32px;">Edit</a>
-      <ul>
-        <li>Beer Style: <%= beer.style %></li>
-        <li>On tap: <%= beer.on_tap %></li>
-        <li>Price: <%= beer.pint_price %></li>
-      </ul>
-      <hr />
+      <% @beers.each do |beer| %>
+        <h2><a href="/beers/<%= beer.id %>"><%= beer.name %></a></h2>
+        <a href="/beers/<%= beer.id %>/edit" style="float: right; font-size: 32px;">Edit</a>
+        <ul>
+          <li>Beer Style: <%= beer.style %></li>
+          <li>On tap: <%= beer.on_tap %></li>
+          <li>Price: <%= beer.pint_price %></li>
+        </ul>
+        <hr />
     <% end %>
   </body>
 </html>

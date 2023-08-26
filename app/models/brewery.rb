@@ -12,4 +12,8 @@ class Brewery < ApplicationRecord
   def ordered_beers
     self.beers.order('name')
   end
+
+  def cost_more_than(float)
+    self.beers.where('pint_price > ?', float)
+  end
 end

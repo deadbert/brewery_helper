@@ -13,8 +13,13 @@ class BreweriesController < ApplicationController
       @brewery = Brewery.find(params[:id])
       @beers = @brewery.ordered_beers
     else
-      @brewery = Brewery.find(params[:id])
-      @beers = @brewery.beers
+      if !(params[:beer_price] == nil)
+        @brewery = Brewery.find(params[:id])
+        @beers = @brewery.cost_more_than(params[:beer_price])
+      else
+        @brewery = Brewery.find(params[:id])
+        @beers = @brewery.beers
+      end
     end
   end
 
