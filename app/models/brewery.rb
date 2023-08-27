@@ -1,6 +1,11 @@
 class Brewery < ApplicationRecord
   has_many :beers, dependent: :destroy
 
+  validates_presence_of :name 
+  validates_presence_of :location 
+  validates_presence_of :total_taps 
+  validates :allow_dogs, inclusion: [true, false] 
+
   def beers_count
     self.beers.count
   end
