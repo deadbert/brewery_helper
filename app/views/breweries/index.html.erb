@@ -20,6 +20,7 @@
     <script src="" async defer></script>
     <h1>All Breweries</h1>
     <div style='text-align: center; font-size: 24px;'><a href="/breweries/new">Add Brewery</a></div><hr/><br>
+    <div style='padding: 20px'><a href='/breweries?sorted=true' method='get'>Sort by number of beers at each brewery</a></div>
     <% @breweries.each do |brewery| %>
       <div>
         <a href="/breweries/<%= brewery.id %>%>"><%= brewery.name %> Created: <%= brewery.created_at %></a>

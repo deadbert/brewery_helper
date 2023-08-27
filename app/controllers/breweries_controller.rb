@@ -1,6 +1,10 @@
 class BreweriesController < ApplicationController
   def index
-    @breweries = Brewery.order_by
+    if params[:sorted] == 'true'
+      @breweries = Brewery.order_by_total_beers
+    else
+      @breweries = Brewery.order_by
+    end
   end
   
   def show

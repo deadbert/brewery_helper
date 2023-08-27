@@ -16,4 +16,8 @@ class Brewery < ApplicationRecord
   def cost_more_than(float)
     self.beers.where('pint_price > ?', float)
   end
+
+  def self.order_by_total_beers
+    Brewery.joins(:beers).group(:id).order('COUNT(beers.brewery_id) DESC')
+  end
 end
