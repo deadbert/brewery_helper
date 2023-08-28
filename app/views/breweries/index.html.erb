@@ -24,7 +24,7 @@
     <% @breweries.each do |brewery| %>
       <div>
         <a href="/breweries/<%= brewery.id %>%>"><%= brewery.name %> Created: <%= brewery.created_at %></a>
-        <form style='float:right' actaion="/breweries/<%= brewery.id %>/delete" method='post'>
+        <form style='float:right' action="/breweries/<%= brewery.id %>/delete" method='post'>
           <input type='hidden' name='_method' value='DELETE'>
           <input type='submit' value='Delete'>
         </form>
