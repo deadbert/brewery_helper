@@ -19,17 +19,16 @@
     
     <script src="" async defer></script>
     <div style='text-align: center'><h1>Add New Beer to <%= @brewery.name %></h1></div>
-    <form action="/breweries/:id/beers" method='post'>
-      <input type="hidden" name="brewery_id" value="<%= @brewery.id %>" />
-      <label for="type">Beer style:</label><br>
-      <input type="text" id="type" name="type"><br>
-      <label for="on_tap">On_tap?:</label><br>
-      <input type="text" id="on_tap" name="on_tap"><br>
-      <label for="pint_price">Pint Price:</label><br>
-      <input type="text" id="pint_price" name="pint_price"><br>
-      <label for="beer_name">Beer Name:</label><br>
-      <input type="text" id="beer_name" name="beer_name"><br>
-      <input type="submit" value="Submit">
-    </form><br>
+    <%= form_with url: "/breweries/#{@brewery.id}/beers?brewery_id=#{@brewery.id}", method: :post, data: { turbo: false } do |form| %>
+      <%= form.label :type%><br>
+      <%= form.text_field :type %><br>
+      <%= form.label :on_tap %><br>
+      <%= form.text_field :on_tap %><br>
+      <%= form.label :pint_price %><br>
+      <%= form.text_field :pint_price %><br>
+      <%= form.label :beer_name %><br>
+      <%= form.text_field :beer_name %><br>
+      <%= form.submit "Submit" %><br>
+    <% end %>
   </body>
 </html>
