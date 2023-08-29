@@ -32,6 +32,15 @@ RSpec.describe "Breweries index", type: :feature do
 
         expect(page).to have_link(href: "/breweries/new")
       end
+
+      it "I see a link to edit the brewery info that takes me to /breweries/:id/edit" do
+        brewery_1 = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
+        brewery_2 = Brewery.create(name: "Maxline", location: "Fort Collins", total_taps: 12, allow_dogs: true)
+        visit "/breweries"
+
+        expect(page).to have_link(href: "/breweries/#{brewery_1.id}/edit")
+        expect(page).to have_link(href: "/breweries/#{brewery_2.id}/edit")
+      end
     end
   end
 end
