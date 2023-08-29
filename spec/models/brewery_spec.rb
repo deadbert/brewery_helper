@@ -23,12 +23,24 @@ RSpec.describe Brewery, type: :model do
       expect(brewery_1.beers_count).to eq(3)
     end
   end
+
   describe "order_by" do
     it "returns returns list of breweries ordered by most recently created" do
       brewery_1 = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
       brewery_2 = Brewery.create(name: "New Belgium", location: "Fort Collins", total_taps: 18, allow_dogs: true)
 
       expect(Brewery.order_by).to eq([brewery_2, brewery_1])
+    end
+  end
+
+  describe "cost_more_than" do
+    it "returns all beers at a brewery that cost more than given value" do
+      brewery_1 = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
+      beer_1 = brewery_1.beers.create(style: 'IPA', on_tap: true, pint_price: 7.50, name: "Space Ghost")
+      beer_2 = brewery_1.beers.create(style: 'IPA', on_tap: true, pint_price: 7.50, name: "Juicy Bits")
+      beer_3 = brewery_1.beers.create(style: 'IPA', on_tap: false, pint_price: 6.50, name: "Willy")
+
+      expect(brewery_1.cost_more_than(7.00)).to eq([beer_1, beer_2])
     end
   end
 end
