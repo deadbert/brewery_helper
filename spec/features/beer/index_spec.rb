@@ -49,6 +49,17 @@ RSpec.describe "Beer Index", type: :feature do
         expect(page).to have_link(href: "/beers/#{beer_2.id}/edit")
         expect(page).to have_link(href: "/beers/#{beer_3.id}/edit")
       end
+
+      it "I see a button to delete the beer next to each entry" do
+        brewer_2 = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
+        beer_1 = brewer_2.beers.create(style: 'Lager', on_tap: true, pint_price: 6.00, name: 'willy')
+        visit "/beers"
+
+        expect(page).to have_selector("input[type=submit][value='Delete']")
+        click_button 'Delete'
+
+        expect(page).to_not have_content(beer_1.name)
+      end
     end
   end
 end
