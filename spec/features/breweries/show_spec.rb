@@ -40,6 +40,18 @@ RSpec.describe "Breweries Show" do
         expect(page).to have_link(href: '/beers')
         expect(page).to have_link(href: '/breweries')
       end
+
+      it "I see a link to Delete the brewery when I click delete I'm redirected the /breweries" do
+        brewery_1 = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
+
+        visit "/breweries/#{brewery_1.id}"
+
+        expect(page).to have_selector("input[type=submit][value='Delete']")
+
+        click_button "Delete"
+
+        expect(page).not_to have_content(brewery_1.name)
+      end
     end
 
     describe "When I visit /breweries/:id/beers" do
