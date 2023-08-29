@@ -3,12 +3,10 @@ require 'rails_helper'
 RSpec.describe "Beer Index", type: :feature do
   describe "As a user" do
     describe "When I visit /beers" do
-      before :each do
-        @brewer = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
-        @brewer.beers.create(style: 'Lager', on_tap: true, pint_price: 6.00, name: 'willy')
-      end
-
       it "I see all the entries for beer's and their attributes" do
+        brewer = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
+        brewer.beers.create(style: 'Lager', on_tap: true, pint_price: 6.00, name: 'willy')
+
         visit '/beers'
 
         expect(page).to have_content("Lager")
@@ -18,6 +16,9 @@ RSpec.describe "Beer Index", type: :feature do
       end
 
       it "I see a link to the beers and breweries index" do
+        brewer = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
+        brewer.beers.create(style: 'Lager', on_tap: true, pint_price: 6.00, name: 'willy')
+
         visit '/beers'
         
         expect(page).to have_link(href: '/beers')

@@ -23,4 +23,12 @@ RSpec.describe Brewery, type: :model do
       expect(brewery_1.beers_count).to eq(3)
     end
   end
+  describe "order_by" do
+    it "returns returns list of breweries ordered by most recently created" do
+      brewery_1 = Brewery.create(name: "Weld Works", location: "Greeley", total_taps: 25, allow_dogs: true)
+      brewery_2 = Brewery.create(name: "New Belgium", location: "Fort Collins", total_taps: 18, allow_dogs: true)
+
+      expect(Brewery.order_by).to eq([brewery_2, brewery_1])
+    end
+  end
 end
